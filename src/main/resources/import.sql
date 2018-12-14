@@ -1,7 +1,7 @@
 /* Populate tables */
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Juan Luis', 'Goldaracena', 'juanlu360@gmail.com', '2017-08-01', '');
+INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Juan', 'Goldaracena', 'juanlu360@gmail.com', '2017-08-01', '');
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Cayetana', 'Goldaracena', 'cayetana@gmail.com', '2017-08-02', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Bruce', 'Norris', 'lee.norris@gmail.com', '2017-08-03', '');
+INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Linus', 'Torvalds', 'linus.torvalds@gmail.com', '2017-08-03', '');
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Jane', 'Doe', 'jane.doe@gmail.com', '2017-08-04', '');
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Rasmus', 'Lerdorf', 'rasmus.lerdorf@gmail.com', '2017-08-05', '');
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Erich', 'Gamma', 'erich.gamma@gmail.com', '2017-08-06', '');
@@ -26,13 +26,13 @@ INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('John', '
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Richard', 'Roe', 'stiles.roe@gmail.com', '2017-08-25', '');
 
 /* Populate tabla productos */
-INSERT INTO productos (nombre, precio, create_at) VALUES('Panasonic Pantalla LCD', 1590, NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES('Panasonic Pantalla LCD', 1799, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Sony Camara digital DSC-W320B', 230, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Apple iPod shuffle', 90, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Sony Notebook Z110', 799, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Hewlett Packard Multifuncional F2280', 140, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Bianchi Bicicleta Aro 26', 2100, NOW());
-INSERT INTO productos (nombre, precio, create_at) VALUES('Mica Comoda 5 Cajones', 130, NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES('Mica Comoda 5 Cajones', 140, NOW());
 
 /* Creamos algunas facturas */
 INSERT INTO facturas (descripcion, observacion, cliente_id, create_at) VALUES('Factura equipos de oficina', null, 1, NOW());
@@ -43,3 +43,11 @@ INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES(1, 1, 7);
 
 INSERT INTO facturas (descripcion, observacion, cliente_id, create_at) VALUES('Factura Bicicleta', 'Alguna nota importante!', 1, NOW());
 INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES(3, 2, 6);
+
+/* Creamos algunos usuarios con sus roles */
+INSERT INTO `users` (username, password, enabled) VALUES ('juan','$2a$10$O9wxmH/AeyZZzIS09Wp8YOEMvFnbRVJ8B4dmAMVSGloR62lj.yqXG',1);
+INSERT INTO `users` (username, password, enabled) VALUES ('admin','$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS',1);
+
+INSERT INTO `authorities` (user_id, authority) VALUES (1,'ROLE_USER');
+INSERT INTO `authorities` (user_id, authority) VALUES (2,'ROLE_ADMIN');
+INSERT INTO `authorities` (user_id, authority) VALUES (2,'ROLE_USER');
